@@ -7,7 +7,7 @@ namespace UnityToolbag
     {
         void OnGUI()
         {
-            using (new HorizontalBlock()) {
+            using (new EditorGUILayout.HorizontalScope()) {
                 if (GUILayout.Button("X")) {
                     Drop(new Vector3(1, 0, 0));
                 }
@@ -19,7 +19,7 @@ namespace UnityToolbag
                 }
             }
 
-            using (new HorizontalBlock()) {
+            using (new EditorGUILayout.HorizontalScope()) {
                 if (GUILayout.Button("-X")) {
                     Drop(new Vector3(-1, 0, 0));
                 }
@@ -36,7 +36,7 @@ namespace UnityToolbag
         static void ShowWindow()
         {
             var window = EditorWindow.GetWindow<SnapToSurface>();
-            window.title = "Snap To Surface";
+            window.titleContent = new GUIContent("Snap To Surface");
         }
 
         static void Drop(Vector3 dir)
